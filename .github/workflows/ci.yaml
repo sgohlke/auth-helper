@@ -1,0 +1,7 @@
+name: AuthHelper
+on:
+  push:
+
+jobs:
+  authhelper:
+    uses: sgohlke/workflows/.github/workflows/deno.yml@main
