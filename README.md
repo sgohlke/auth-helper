@@ -15,6 +15,7 @@ text password against a hashed password.
   password/string.
 - **generateAccessTokenHash**: Creates an access token hash (hex string) from a
   Random 24 elements UInt8 Array.
+- **uIntArrayToHexString**: Converts a given Uint8Array to a HEX string.
 - **async verifyPassword**: Verifies that a given clear text password and a
   hashed password match.
 
@@ -29,7 +30,7 @@ Example:
 ```typescript
 import {
    createPasswordHash,
-} from 'https://raw.githubusercontent.com/sgohlke/auth-helper/1.0.0/index.ts'
+} from 'https://raw.githubusercontent.com/sgohlke/auth-helper/2.0.0/index.ts'
 ```
 
 Example using JSR:
@@ -47,7 +48,7 @@ import {
    createPasswordHash,
    generateAccessTokenHash,
    verifyPassword,
-} from 'https://raw.githubusercontent.com/sgohlke/auth-helper/1.0.0/index.ts'
+} from 'https://raw.githubusercontent.com/sgohlke/auth-helper/2.0.0/index.ts'
 
 async function examples(): Promise<void> {
    // Example 1: User registers new account and provides password to be used for  logins

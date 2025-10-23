@@ -1,8 +1,8 @@
 import { assert, assertEquals } from './dev_deps.ts'
 import {
-   arrayBufferToHexString,
    createPasswordHash,
    generateAccessTokenHash,
+   uIntArrayToHexString,
    verifyPassword,
 } from './index.ts'
 
@@ -13,13 +13,13 @@ Deno.test('Correct password hash is created', async () => {
    )
 })
 
-Deno.test('Correct hex string is created for given array buffer', () => {
-   const buffer = Uint8Array.from(
+Deno.test('Correct hex string is created for given uint8 array', () => {
+   const array = Uint8Array.from(
       atob('QSBzaW1wbGUgbWVzc2FnZQ=='),
       (c) => c.charCodeAt(0),
    )
    assertEquals(
-      arrayBufferToHexString(buffer),
+      uIntArrayToHexString(array),
       '412073696d706c65206d657373616765',
    )
 })

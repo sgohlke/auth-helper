@@ -15,7 +15,7 @@ export async function createPasswordHash(password: string): Promise<string> {
  */
 export function generateAccessTokenHash(): string {
    const uintArray = crypto.getRandomValues(new Uint8Array(24))
-   return arrayBufferToHexString(uintArray)
+   return uIntArrayToHexString(uintArray)
 }
 
 /**
@@ -24,7 +24,16 @@ export function generateAccessTokenHash(): string {
  * @returns A hex string
  */
 export function arrayBufferToHexString(buffer: ArrayBuffer): string {
-   const hashArray = Array.from(new Uint8Array(buffer))
+   return uIntArrayToHexString(new Uint8Array(buffer))
+}
+
+/**
+ * Creates a hex string for given Uint8Array.
+ * @param uIntEightArray The Uint8Array to create a hex string from
+ * @returns A hex string
+ */
+export function uIntArrayToHexString(uIntEightArray: Uint8Array): string {
+   const hashArray = Array.from(uIntEightArray)
    const hashHex = hashArray.map((b) => b.toString(16).padStart(2, '0')).join(
       '',
    )
